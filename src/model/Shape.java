@@ -6,7 +6,7 @@ import sound.MidiSynth;
 import java.awt.*;
 
 
-public class Shape {
+abstract public class Shape {
     private static Color PLAYING_COLOR;
 
     private int x;
