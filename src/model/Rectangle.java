@@ -6,8 +6,13 @@ import java.awt.*;
 
 public class Rectangle extends Shape {
 
+    private static Color PLAYING_COLOR;
+
     public Rectangle(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
+        PLAYING_COLOR = new Color(230, 158, 60);
+        instrument = 0;
+
     }
 
     public Rectangle(int x, int y, int w, int h) {
@@ -17,7 +22,6 @@ public class Rectangle extends Shape {
     public boolean contains(Point point) {
         int point_x = point.x;
         int point_y = point.y;
-
         return containsX(point_x) && containsY(point_y);
     }
 

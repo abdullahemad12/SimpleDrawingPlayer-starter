@@ -5,9 +5,13 @@ import sound.MidiSynth;
 import java.awt.*;
 
 public class Oval extends Shape{
+    private static Color PLAYING_COLOR;
 
     public Oval(Point topLeft, MidiSynth midiSynth) {
         super(topLeft, midiSynth);
+        PLAYING_COLOR = new Color(66, 134, 244);
+        instrument = 37;
+
     }
 
     public Oval(int x, int y, int w, int h) {

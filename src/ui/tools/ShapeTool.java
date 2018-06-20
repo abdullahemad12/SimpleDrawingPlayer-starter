@@ -10,21 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-public class ShapeTool extends Tool {
-	private Shape shape;
+abstract public class ShapeTool extends Tool {
+	protected Shape shape;
 
     public ShapeTool(DrawingEditor editor, JComponent parent) {
 		super(editor, parent);
 		shape = null;
 	}
 
-    // MODIFIES: this
-    // EFFECTS:  creates new button and adds to parent
-	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton(getLabel());
-		button = customizeButton(button);
-	}
+
 
     // MODIFIES: this
     // EFFECTS:  associate button with new ClickHandler
@@ -38,7 +32,6 @@ public class ShapeTool extends Tool {
     //           added to the editor's drawing
 	@Override
 	public void mousePressedInDrawingArea(MouseEvent e) {
-		makeShape(e);
 		shape.selectAndPlay();
 		shape.setBounds(e.getPoint());
 		editor.addToDrawing(shape);
@@ -60,15 +53,9 @@ public class ShapeTool extends Tool {
 		shape.setBounds(e.getPoint());
 	}
 
-	//EFFECTS: Returns the string for the label.
-	private String getLabel() {
-		return "Shape";
-	}
 
-	//EFFECTS: Constructs and returns the new shape
-	private void makeShape(MouseEvent e) {
-		shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
-	}
+
+
 
 	private class ShapeToolClickHandler implements ActionListener {
 

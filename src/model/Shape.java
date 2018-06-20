@@ -7,7 +7,6 @@ import java.awt.*;
 
 
 abstract public class Shape {
-    protected static Color PLAYING_COLOR;
 
     protected int x;
     protected int y;
@@ -25,9 +24,7 @@ abstract public class Shape {
         this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
         selected = false;
         this.midiSynth = midiSynth;
-        instrument = 0;
         playLineCoord = 0;
-        PLAYING_COLOR = new Color(230, 158, 60);
     }
 
 
